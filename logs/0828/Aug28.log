@@ -1,0 +1,24 @@
+Script started on Wed Aug 28 12:31:54 2024
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ ssh lklfta1@snowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Last login: Mon Aug 26 14:26:13 2024 from 131.96.222.88
+   +
+   |   GSU Computer Science
+   |   Instructional Server
+   |   SNOWBALL.cs.gsu.edu
+   +
+]0;lklfta1@gsuad.gsu.edu@snowball:~[?1034h[lklfta1@gsuad.gsu.edu@snowball ~]$ echo $sh[K[KSHELL
+/bin/bash
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ webster chicken
+-bash: webster: command not found
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ exit
+logout
+Connection to snowball.cs.gsu.edu closed.
+bash-3.2$ exit
+exit
+
+Script done on Wed Aug 28 12:59:27 2024

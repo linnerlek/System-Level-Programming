@@ -1,0 +1,54 @@
+Script started on Wed 04 Sep 2024 12:26:36 PM EDT
+]0;lklfta1@gsuad.gsu.edu@snowball:~[?1034h[lklfta1@gsuad.gsu.edu@snowball ~]$ ad[K[Kdate
+Wed Sep  4 12:26:41 EDT 2024
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ mkdir labs
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ dir
+example1  example2  file1  file2  Lab2.log  labs
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ cd labs?[K/
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ pwd
+/home/lklfta1/labs
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ mv file.[K1.txt[K[K[K[K[K1 labs
+mv: cannot stat ‘file1’: No such file or directory
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ mv file1 labs[K[K[K[K[K.txt labs
+mv: cannot stat ‘file1.txt’: No such file or directory
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ dir
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ dir [K[K[K[Kcd
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ pwd
+/home/lklfta1
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ dir
+example1  example2  file1  file2  Lab2.log  labs
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ mv file1 labs
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ mv file2 las[Kbs
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ cd labs
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ ls -l
+total 8
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 25 Aug 26 14:00 file2
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ cat.[K>testfile
+On some wild apple tree's young tender bark,
+It lifts a gaunt luxuriating beast
+So near to paradise all pairing ends:
+So near to paradise all pairing ends:
+
+	cat
+help
+exit
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ wc testfile
+  8  31 171 testfile
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ wc -l testfile
+8 testfile
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ ls -l
+total 12
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  25 Aug 26 14:00 file2
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 171 Sep  4 12:31 testfile
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ chmod 700 file1
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ ls -l
+total 12
+-rwx------. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  27 Aug 26 14:00 [0m[38;5;34mfile1[0m
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  25 Aug 26 14:00 file2
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 171 Sep  4 12:31 testfile
+]0;lklfta1@gsuad.gsu.edu@snowball:~/labs[lklfta1@gsuad.gsu.edu@snowball labs]$ exit
+exit
+
+Script done on Wed 04 Sep 2024 12:34:27 PM EDT

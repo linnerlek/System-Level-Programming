@@ -1,0 +1,53 @@
+Linn Klofta
+CSC 3320 Lab #3
+Account: lklfta1
+Due date: 09/15
+
+Script started on Mon Sep  9 14:02:46 2028
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ cd Desktop
+bash-3.2$ vi hello.c
+bash-3.2$ cat hello.c
+/* 
+  hello world
+*/
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+
+   printf("hello world.\n"); 
+
+   return 0;
+}
+bash-3.2$ gcc hello.c -o hello
+bash-3.2$ ./hello
+hello world.
+bash-3.2$ cp hello.c lab3.c
+bash-3.2$ vi lab3.c
+bash-3.2$ cat lab3.c
+/* 
+  hello world
+*/
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+
+   printf("hello world.\n"); 
+   printf("Linn was here. \n");
+   return 0;
+}
+bash-3.2$ gcc lab3.c -o lab3
+bash-3.2$ ./lab3
+hello world.
+Linn was here. 
+bash-3.2$ echo What will happen is that the source file test.c will be overwritten by the compiled file, this is because the output name of the compiled file is the same as the source file.
+What will happen is that the source file test.c will be overwritten by the compiled file, this is because the output name of the compiled file is the same as the source file.
+bash-3.2$ exit
+exit
+
+Script done on Mon Sep  9 14:07:28 2024

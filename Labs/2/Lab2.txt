@@ -1,0 +1,53 @@
+Linn Klofta
+CSC 3320 Lab #2
+Account: lklfta1
+Due date: 09/08
+
+Demonstrated my solution to Sevki Kulkuloglu 08/05 5:00pm 
+
+Script started on Wed 04 Sep 2024 12:26:36 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball ~]$ date
+Wed Sep  4 12:26:41 EDT 2024
+[lklfta1@gsuad.gsu.edu@snowball ~]$ mkdir labs
+[lklfta1@gsuad.gsu.edu@snowball ~]$ dir
+example1  example2  file1  file2  Lab2.log  labs
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cd labs/
+[lklfta1@gsuad.gsu.edu@snowball labs]$ pwd
+/home/lklfta1/labs
+[lklfta1@gsuad.gsu.edu@snowball labs]$ dir
+[lklfta1@gsuad.gsu.edu@snowball labs]$ cd
+[lklfta1@gsuad.gsu.edu@snowball ~]$ pwd
+/home/lklfta1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ dir
+example1  example2  file1  file2  Lab2.log  labs
+[lklfta1@gsuad.gsu.edu@snowball ~]$ mv file1 labs
+[lklfta1@gsuad.gsu.edu@snowball ~]$ mv file2 labs
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cd labs
+[lklfta1@gsuad.gsu.edu@snowball labs]$ ls -l
+total 8
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 25 Aug 26 14:00 file2
+[lklfta1@gsuad.gsu.edu@snowball labs]$ cat>testfile
+On some wild apple tree's young tender bark,
+It lifts a gaunt luxuriating beast
+So near to paradise all pairing ends:
+So near to paradise all pairing ends:
+[lklfta1@gsuad.gsu.edu@snowball labs]$ wc testfile
+  4  28 157 testfile
+[lklfta1@gsuad.gsu.edu@snowball labs]$ wc -l testfile
+4 testfile
+[lklfta1@gsuad.gsu.edu@snowball labs]$ ls -l
+total 12
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  25 Aug 26 14:00 file2
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 171 Sep  4 12:31 testfile
+[lklfta1@gsuad.gsu.edu@snowball labs]$ chmod 700 file1
+[lklfta1@gsuad.gsu.edu@snowball labs]$ ls -l
+total 12
+-rwx------. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  25 Aug 26 14:00 file2
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 171 Sep  4 12:31 testfile
+[lklfta1@gsuad.gsu.edu@snowball labs]$ exit
+exit
+
+Script done on Wed 04 Sep 2024 12:34:27 PM EDT

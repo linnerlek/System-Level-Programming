@@ -1,0 +1,188 @@
+Linn Erle Klofta
+CSC 3320 Lab #4
+Account: lklfta1
+Due Date: 09/22
+
+I re-did the lab on the snowball server.
+
+Script started on Wed 18 Sep 2024 03:51:35 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cp hello.c scanf_ex1.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi scanf_ex1.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat scanf_ex1.c
+/* 
+ *   scanf
+ *   */
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+   int num, count = 0;
+   printf("enter an integer value:\n"); 
+   count = scanf("%d", &num);
+   printf("you entered:  %d\n", num);
+
+   return 0;
+}
+
+[lklfta1@gsuad.gsu.edu@snowball ~]$ gcc scanf_ex1.c -o scanf_ex1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex1
+enter an integer value:
+23
+you entered:  23
+[lklfta1@gsuad.gsu.edu@snowball ~]$ echo "24" | ./scanf_ex1
+enter an integer value:
+you entered:  24
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex1
+enter an integer value:
+you entered:  0
+[lklfta1@gsuad.gsu.edu@snowball ~]$ #i used control d above.
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cp scanf_ex1.c scanf_ex2.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi scanf_ex2.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat scanf_ex2.c
+/* 
+ *   scanf
+ *   */
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+   int num, return_value = 0;
+   printf("enter an integer value:\n"); 
+   return_value = scanf("%d", &num);
+   printf("you entered:  %d\n", num);
+   printf("scanf returned the value: %d\n", return_value);
+   return 0;
+}
+
+[lklfta1@gsuad.gsu.edu@snowball ~]$ gcc scanf_ex2.c -o scanf_ex2
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex2
+enter an integer value:
+4
+you entered:  4
+scanf returned the value: 1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex2
+enter an integer value:
+34
+you entered:  34
+scanf returned the value: 1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex2
+enter an integer value:
+you entered:  0
+scanf returned the value: -1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ # i used control d above
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cp scanf_ex2.c scanf_ex3.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi scanf_ex3.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat scanf_ex3.c
+/* 
+ *   scanf
+ *   */
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+   int num, return_value;
+   printf("enter integer values:\n");
+   while ((return_value = scanf("%d", &num)) == 1) {
+       printf("You entered: %d\n", num);
+   }
+ 
+   printf("scanf returned the value: %d\n", return_value);
+   return 0;
+}
+
+[lklfta1@gsuad.gsu.edu@snowball ~]$ gcc scanf_ex3.c -o scanf_ex3
+[lklfta1@gsuad.gsu.edu@snowball ~]$ echo "2 3 1" | ./scanf_ex3
+enter integer values:
+You entered: 2
+You entered: 3
+You entered: 1
+scanf returned the value: -1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi integer_values
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat integer_values
+4
+10
+34
+9
+8
+38
+489
+37
+2
+14
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat integer_values | ./scanf_ex3
+enter integer values:
+You entered: 4
+You entered: 10
+You entered: 34
+You entered: 9
+You entered: 8
+You entered: 38
+You entered: 489
+You entered: 37
+You entered: 2
+You entered: 14
+scanf returned the value: -1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex3 < integer_values
+enter integer values:
+You entered: 4
+You entered: 10
+You entered: 34
+You entered: 9
+You entered: 8
+You entered: 38
+You entered: 489
+You entered: 37
+You entered: 2
+You entered: 14
+scanf returned the value: -1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cp scanf_ex3.c scanf_ex4.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi scanf_ex4.c
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat scanf_ex4.c
+/* 
+ *   scanf
+ *   */
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+   int num, return_value;
+   int sum = 0;
+   printf("enter integer values:\n");
+   while ((return_value = scanf("%d", &num)) == 1) {
+       sum += num;
+   }
+ 
+   printf("the sum is: %d\n", sum);
+   return 0;
+}
+
+[lklfta1@gsuad.gsu.edu@snowball ~]$ gcc scanf_ex4.c -o scanf_ex4
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ./scanf_ex4 < integer_values
+enter integer values:
+the sum is: 645
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi integer_values.csv
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat integer_values.csv
+4, 10, 34, 9, 8, 38, 489, 37, 2, 14
+[lklfta1@gsuad.gsu.edu@snowball ~]$ sed 's/,/ /g' integer_values.csv | ./scanf_ex3
+enter integer values:
+You entered: 4
+You entered: 10
+You entered: 34
+You entered: 9
+You entered: 8
+You entered: 38
+You entered: 489
+You entered: 37
+You entered: 2
+You entered: 14
+scanf returned the value: -1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ sed 's/,/ /g' integer_values.csv | ./scanf_ex4
+enter integer values:
+the sum is: 645
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi answer_4
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat answer_4
+Printing the prompt after scanf fails doesn't work because input/output buffering in C delays output, and scanf reads input first, consuming it before the prompt is printed. In cases of input redirection or piping, the program reads data immediately from the file or pipe, so waiting for scanf to fail prevents the prompt from appearing when it's needed.
+[lklfta1@gsuad.gsu.edu@snowball ~]$ exit
+exit
+
+Script done on Wed 18 Sep 2024 04:01:34 PM EDT

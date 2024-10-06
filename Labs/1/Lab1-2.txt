@@ -1,0 +1,38 @@
+Linn Klofta
+CSc 3320 Lab1
+Account: lklfta1
+Due date: 09/01
+
+Description: Log of part 2 of lab 1
+
+(base) Linns-MBP:Desktop linnerlek$ cat Lab1-2.log
+Script started on Mon Aug 26 14:01:24 2024
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ ssh lklfta1@snowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Last login: Mon Aug 26 13:09:53 2024 from 131.96.222.88
+   +
+   |   GSU Computer Science
+   |   Instructional Server
+   |   SNOWBALL.cs.gsu.edu
+   +
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls -l
+total 16
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 32 Aug 26 13:18 example1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 57 Aug 26 13:34 example2
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 25 Aug 26 14:00 file2
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat file1 file2
+This is file 1 for the lab
+This is file 2 for lab 1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ exit
+logout
+Connection to snowball.cs.gsu.edu closed.
+bash-3.2$ exit
+exit
+
+Script done on Mon Aug 26 14:03:02 2024
+

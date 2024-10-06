@@ -1,0 +1,182 @@
+Linn Erle Klofta
+CSc 3320 Lab #5
+Account: lklfta1
+Due date: 09/29
+
+Description: one program creating random numbers based on a seed, and the other generating random values between 0 and 3 and counting how many of each appear.
+
+Script started on Sun 29 Sep 2024 09:53:02 AM EDT
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ vi lab5_part1.c
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ cat lab5_part1.c
+/*
+  random number generator
+  Linn Klofta  
+
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int seed;
+    int i; // declares the loop vaiable outside the for loop so it works with C89
+
+    while (1){
+        printf("Enter a seed value (or 0 to quit): ");
+        scanf("%d", &seed);
+
+        // check if user inserts 0 to quit
+        if (seed == 0){
+            printf("Exiting the program.\n");
+            break;
+        }
+
+        srand(seed); /^[]11;rgb:9282/9282/9282^G/ give the seed to the random number generator
+        
+        // Generate and print 5 random numbers
+        printf("Random numbers with seed %d:\n", seed);
+        for (i = 0; i<5; i++){
+            printf("%d\n", rand());
+        }
+        printf("\n");
+    }
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ gcc lab5_part1.c -o lab5_part1
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ ./lab5_part1
+Enter a seed value (or 0 to quit): 45
+Random numbers with seed 45:
+1307654290
+146997515
+1281142331
+1896355195
+16470015
+
+Enter a seed value (or 0 to quit): 23
+Random numbers with seed 23:
+1562469902
+1039845534
+2025653534
+739593874
+994290584
+
+Enter a seed value (or 0 to quit): 45
+Random numbers with seed 45:
+1307654290
+146997515
+1281142331
+1896355195
+16470015
+
+Enter a seed value (or 0 to quit): 1
+Random numbers with seed 1:
+1804289383
+846930886
+1681692777
+1714636915
+1957747793
+
+Enter a seed value (or 0 to quit): 0
+Exiting the program.
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ cp lab5_part1.c lab5_part2.c
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ ls
+Lab5.log  lab5_part1  lab5_part1.c  lab5_part2.c
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ vi lab5_part2.c
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ cat lab5_part2.c
+/*
+  random numbers from 0 to 3 counter
+  Linn Klofta  
+
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Generate random value between 0 and 3
+int generate_random_value() {
+    return rand() % 4; // Generates a value from 0 to 3
+}
+
+int main() {
+    int seed;
+    int num_values;
+    int counts[4] = {0}; // array to hold counts for 0, 1, 2, and 3
+    int i;               // loop variables
+    int value;           // variable for generated values
+    float percentage;    // Variable for % calculation
+
+    // Prompt for a seed value
+    printf("Enter a seed value: ");
+    scanf("%d", &seed);
+    srand(seed); // set seed value for random number generation
+
+    // prompt for number of random values to generate
+    printf("Enter the number of random values to generate: ");
+    scanf("%d", &num_values);
+
+    // Generate random values and count occurrences
+    for (i = 0; i < num_values; i++) {
+        value = generate_random_value();
+        counts[value]++; // Increment the count for the generated value
+    }
+
+    // Display the counts
+    printf("Counts:\n");
+    for (i = 0; i < 4; i++) {
+        printf("Value %d: %d\n", i, counts[i]);
+    }
+ 
+    // Calculate and display pecentages of each number
+    printf("Percentages:\n");
+    for (i = 0; i < 4; i++) {
+        percentage = (counts[i] / (float)num_values) * 100;
+        printf("Value %d: %.1f%%\n", i, percentage);
+    }
+
+    return 0;
+}
+
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ gcc lab5_part2.c -o lab5_part2
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ ./lab5_part2
+Enter a seed value: 45
+Enter the number of random values to generate: 10
+Counts:
+Value 0: 1
+Value 1: 1
+Value 2: 1
+Value 3: 7
+Percentages:
+Value 0: 10.0%
+Value 1: 10.0%
+Value 2: 10.0%
+Value 3: 70.0%
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ ./lab5_part2
+Enter a seed value: 10
+Enter the number of random values to generate: 20
+Counts:
+Value 0: 5
+Value 1: 5
+Value 2: 3
+Value 3: 7
+Percentages:
+Value 0: 25.0%
+Value 1: 25.0%
+Value 2: 15.0%
+Value 3: 35.0%
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ ./lab5_part2
+Enter a seed value: 100
+Enter the number of random values to generate: 100
+Counts:
+Value 0: 27
+Value 1: 24
+Value 2: 24
+Value 3: 25
+Percentages:
+Value 0: 27.0%
+Value 1: 24.0%
+Value 2: 24.0%
+Value 3: 25.0%
+[lklfta1@gsuad.gsu.edu@snowball lab5]$ exit
+exit
+
+Script done on Sun 29 Sep 2024 10:04:58 AM EDT

@@ -1,0 +1,50 @@
+Script started on Mon Aug 26 13:58:18 2024
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ vi file1
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"file1" [New][2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?25h[?4m[?25l[m[24;1H[1m-- INSERT --[m[24;13H[K[1;1H[?25h[?25lT[?25h[?25lh[?25h[?25li[?25h[?25ls[?25h[?25l [?25h[?25li[?25h[?25ls[?25h[?25l [?25h[?25lf[?25h[?25li[?25h[?25ll[?25h[?25le[?25h[?25l [?25h[?25l1[?25h[?25l [?25h[?25lf[?25h[?25lo[?25h[?25lr[?25h[?25l [?25h[?25lt[?25h[?25lh[?25h[?25le[?25h[?25l [?25h[?25ll[?25h[?25la[?25h[?25lb[?25h[24;1H[K[1;26H[?25l[?25h[?25l[24;1H:[?25hwq[?25l[?2004l[>4;m"file1" [New] 1L, 27B written[23;2t[23;1t
+[?1004l[?2004l[?1l>[?1049l[?25h[>4;mbash-3.2$ vi fiel[K[Kle2
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"file2" [New][2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?25h[?4m[?25l[m[24;1H[1m-- INSERT --[m[24;13H[K[1;1H[?25h[?25lT[?25h[?25lh[?25h[?25li[?25h[?25ls[?25h[?25l [?25h[?25li[?25h[?25ls[?25h[?25l [?25h[?25lf[?25h[?25li[?25h[?25ll[?25h[?25le[?25h[?25l [?25h[?25l2[?25h[?25l [?25h[?25lf[?25h[?25lo[?25h[?25lr[?25h[?25l [?25h[?25lt[?25h[?25lh[?25h[?25l[1;21H[K[1;21H[?25h[?25l[1;20H[K[1;20H[?25h[?25ll[?25h[?25la[?25h[?25lb[?25h[?25l [?25h[?25l1[?25h[24;1H[K[1;24H[?25l[?25h[?25l[24;1H:[?25hwq[?25l[?2004l[>4;m"file2" [New] 1L, 25B written[23;2t[23;1t
+[?1004l[?2004l[?1l>[?1049l[?25h[>4;mbash-3.2$ ssh[K[Kftp lklfta1@snowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Connected to snowball.cs.gsu.edu.
+sftp> pu  put   lls -l
+total 1128
+drwxr-xr-x@   7 linnerlek  staff     224 Feb 14  2024  
+-rw-r--r--@   1 linnerlek  staff   26387 Aug 26 13:38 Aug26.log
+-rw-r--r--    1 linnerlek  staff    4537 Aug 26 13:44 Aug26.txt
+-rw-r--r--    1 linnerlek  staff    5819 Aug 26 13:59 Lab1-1.log
+-rw-r--r--@   1 linnerlek  staff   52277 Aug 18 18:03 Screenshot 2024-08-18 at 6.02.57 PM.png
+-rw-r--r--@   1 linnerlek  staff   82235 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.06 PM.png
+-rw-r--r--@   1 linnerlek  staff  174175 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.08 PM.png
+-rw-r--r--@   1 linnerlek  staff   60151 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.13 PM.png
+-rw-r--r--@   1 linnerlek  staff   84672 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.26 PM.png
+-rw-------@   1 linnerlek  staff   51506 Aug 18 21:10 d16a93505ac4d9cb315527411f158252.jpg
+-rw-r--r--    1 linnerlek  staff      32 Aug 26 13:33 example1
+-rw-r--r--    1 linnerlek  staff      57 Aug 26 13:28 example2
+-rw-r--r--    1 linnerlek  staff      27 Aug 26 13:59 file1
+-rw-r--r--    1 linnerlek  staff      25 Aug 26 13:59 file2
+drwxr-xr-x   38 linnerlek  staff    1216 Aug 17 20:30 soojin
+drwxr-xr-x  137 linnerlek  staff    4384 Aug 17 20:38 soyeon
+sftp> put fi	      lls put file1
+ls: put: No such file or directory
+file1
+Shell exited with status 1
+sftp> put   put fi	`  ile1
+Uploading file1 to /home/lklfta1/file1
+file1                                           0%    0     0.0KB/s   --:-- ETAfile1                                         100%   27     2.2KB/s   00:00    
+sftp> put file2
+Uploading file2 to /home/lklfta1/file2
+file2                                           0%    0     0.0KB/s   --:-- ETAfile2                                         100%   25     3.4KB/s   00:00    
+sftp> ls -l
+-rw-rw-r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       32 Aug 26 13:18 example1
+-rw-r--r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       57 Aug 26 13:34 example2
+-rw-r--r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       27 Aug 26 14:00 file1
+-rw-r--r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       25 Aug 26 14:00 file2
+sftp> exit  
+bash-3.2$ exit
+exit
+
+Script done on Mon Aug 26 14:00:59 2024

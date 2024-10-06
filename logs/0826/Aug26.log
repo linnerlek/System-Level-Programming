@@ -1,0 +1,134 @@
+Script started on Mon Aug 26 13:06:56 2024
+[1m[7m%[27m[1m[0m                                                                                ]7;file://Linns-MBP.wifi.gsu.edu/Users/linnerlek/Desktop[0m[27m[24m[J(base) linnerlek@Linns-MBP Desktop % [K[?2004h# ## connect to snowb     SNOWBALL[?2004l
+zsh: command not found: #
+[1m[7m%[27m[1m[0m                                                                                ]7;file://Linns-MBP.wifi.gsu.edu/Users/linnerlek/Desktop[0m[27m[24m[J(base) linnerlek@Linns-MBP Desktop % [K[?2004h# connect to SNOWBALL                 #test[?2004l
+zsh: command not found: #test
+[1m[7m%[27m[1m[0m                                                                                ]7;file://Linns-MBP.wifi.gsu.edu/Users/linnerlek/Desktop[0m[27m[24m[J(base) linnerlek@Linns-MBP Desktop % [K[?2004heexec bash[?2004l
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ 
+bash-3.2$ # [Kconnect to snowball
+bash-3.2$ clear
+[H[2J[3Jbash-3.2$ ssh lklfta1@snowball.gsu.[K[K[K[Kcs.gsu.edu
+The authenticity of host 'snowball.cs.gsu.edu (131.96.155.217)' can't be established.
+ED25519 key fingerprint is SHA256:PhkVVNTJ92YR6OOyawbf/A3jK6kuBJuHBivqDl8HBJ0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'snowball.cs.gsu.edu' (ED25519) to the list of known hosts.
+lklfta1@snowball.cs.gsu.edu's password: 
+Creating home directory for lklfta1.
+   +
+   |   GSU Computer Science
+   |   Instructional Server
+   |   SNOWBALL.cs.gsu.edu
+   +
+]0;lklfta1@gsuad.gsu.edu@snowball:~[?1034h[lklfta1@gsuad.gsu.edu@snowball ~]$ ls
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ ls 01[K[K-1[Kl
+total 0
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ vi [K[K[Kls -la
+total 44
+drwx------.  4 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  4096 Aug 26 13:09 [0m[38;5;27m.[0m
+drwxr-xr-x. 44 root                  root                  20480 Aug 26 13:14 [38;5;27m..[0m
+-rw-------.  1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu    18 Aug 26 13:09 .bash_logout
+-rw-------.  1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu   193 Aug 26 13:09 .bash_profile
+-rw-------.  1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu   231 Aug 26 13:09 .bashrc
+drwxrwxr-x.  3 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  4096 Aug 26 13:09 [38;5;27m.cache[0m
+drwxrwxr-x.  3 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  4096 Aug 26 13:09 [38;5;27m.config[0m
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ vi
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[>c[?25l[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll[6;32HVIM - Vi IMproved[8;33Hversion 7.4.629[9;29Hby Bram Moolenaar et al.[10;24HModified by [34m<bugzilla@redhat.com>[m[11;19HVim is open source and freely distributable[13;26HHelp poor children in Uganda![14;18Htype  :help iccf[34m<Enter>[m       for information [16;18Htype  :q[34m<Enter>[m               to exit         [17;18Htype  :help[34m<Enter>[m  or  [34m<F1>[m  for on-line help[18;18Htype  :help version7[34m<Enter>[m   for version info[1;1H[?12l[?25h[27m[m[H[2J[?25l[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll[6;32HVIM - Vi IMproved[8;33Hversion 7.4.629[9;29Hby Bram Moolenaar et al.[10;24HModified by [34m<bugzilla@redhat.com>[m[11;19HVim is open source and freely distributable[13;26HHelp poor children in Uganda![14;18Htype  :help iccf[34m<Enter>[m       for information [16;18Htype  :q[34m<Enter>[m               to exit         [17;18Htype  :help[34m<Enter>[m  or  [34m<F1>[m  for on-line help[18;18Htype  :help version7[34m<Enter>[m   for version info[1;1H[?12l[?25h[?25l[24;63H[K[24;1H:[?12l[?25hq[?25l[?12l[?25h[?25l[24;1H[K[24;1H[?1l>[?12l[?25h[?1049l]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ vils -la[K
+total 0
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ vi example[Ke1
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"example1" [New File][>c[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll[1;1H[?12l[?25h[27m[m[H[2J[?25l[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll"example1" [New File][1;1H[?12l[?25h[?25l[24;1H[1m-- INSERT --[m[24;13H[K[24;63H0,1[11CAll[1;1H[?12l[?25h[?25lp[24;63H1,2[1;2H[?12l[?25h[?25lp[24;65H3[1;3H[?12l[?25h[?25l[1;2H[K[24;65H2[1;2H[?12l[?25h[?25l[1;1H[K[24;65H1[1;1H[?12l[?25h[?25la[24;65H2[1;2H[?12l[?25h[?25lp[24;65H3[1;3H[?12l[?25h[?25lp[24;65H4[1;4H[?12l[?25h[?25ll[24;65H5[1;5H[?12l[?25h[?25le[24;65H6[1;6H[?12l[?25h[?25l[2;1H[K[24;63H2,1[2;1H[?12l[?25h[?25lk[24;65H2[2;2H[?12l[?25h[?25li[24;65H3[2;3H[?12l[?25h[?25lwi[24;65H5[2;5H[?12l[?25h[?25l[3;1H[K[24;63H3,1[3;1H[?12l[?25h[?25lg[24;65H2[3;2H[?12l[?25h[?25lr[24;65H3[3;3H[?12l[?25h[?25lap[24;65H5[3;5H[?12l[?25h[?25le[24;65H6[3;6H[?12l[?25h[?25l[4;1H[K[24;63H4,1[4;1H[?12l[?25h[?25lp[24;65H2[4;2H[?12l[?25h[?25lum[24;65H4[4;4H[?12l[?25h[?25lp[24;65H5[4;5H[?12l[?25h[?25lk[24;65H6[4;6H[?12l[?25h[?25li[24;65H7[4;7H[?12l[?25h[?25ln[24;65H8[4;8H[?12l[?25h[?25l[5;1H[K[24;63H5,1[5;1H[?12l[?25h[?25lo[24;65H2[5;2H[?12l[?25h[?25lr[24;65H3[5;3H[?12l[?25h[?25la[24;65H4[5;4H[?12l[?25h[?25ln[24;65H5[5;5H[?12l[?25h[?25lg[24;65H6[5;6H[?12l[?25h[?25le[24;65H7[5;7H[?12l[?25h[?25l[6;1H[K[24;63H6,1[6;1H[?12l[?25h[?25l:[24;65H2[6;2H[?12l[?25h[?25lwq[24;65H4[6;4H[?12l[?25h[?25l[24;65H5[6;5H[?12l[?25h[?25l[24;65H4[6;4H[?12l[?25h[?25l[6;3H[K[24;65H3[6;3H[?12l[?25h[?25l[6;2H[K[24;65H2[6;2H[?12l[?25h[?25l[6;1H[K[24;65H1[6;1H[?12l[?25h[?25l[94m~                                                                               [m[24;63H5,7[5;7H[?12l[?25h[?25l[24;63H1,6[1;6H[?12l[?25h[?25li[24;65H7[1;7H[?12l[?25h[?25l[1;6H[K[24;65H6[1;6H[?12l[?25h[?25l[2;23r[2;1H[L[1;24r[24;63H[K[24;63H2,1[11CAll[2;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[1;1Happle[23;1H[94m~                                                                               [m[24;63H[K[24;63H1,6[11CAll[1;6H[?12l[?25h[?25l[2;23r[2;1H[L[1;24r[24;63H[K[24;63H2,1[11CAll[2;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[1;1Happle[23;1H[94m~                                                                               [m[24;63H[K[24;63H1,6[11CAll[1;6H[?12l[?25h[?25l[24;63H2,5[2;5H[?12l[?25h[?25l[24;63H3,6[3;6H[?12l[?25h[?25l[24;63H4[4;6H[?12l[?25h[?25l[24;63H5[5;6H[?12l[?25h[?25l[24;65H7[5;7H[?12l[?25h[24;1H[K[5;6H[?25l[24;63H5,6[11CAll[5;6H[?12l[?25h[?25l[24;1H[1m-- INSERT --[m[24;63H[K[24;63H5,6[11CAll[5;6H[?12l[?25h[24;1H[K[5;5H[?25l[24;63H5,5[11CAll[5;5H[?12l[?25h[?25l[24;65H6[5;6H[?12l[?25h[?25l[24;63H[K[24;1H:[?12l[?25hw[?25l[?12l[?25h[?25l"example1" [New] 5L, 32C written[30C5,6[11CAll[24;63H[K[24;63H5,6[11CAll[5;6H[?12l[?25h[?25l[24;1H[K[24;1H:[?12l[?25hq[?25l[?12l[?25h[?25l[24;1H[K[24;1H[?1l>[?12l[?25h[?1049l]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ vi example1[6Pls -l
+total 4
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 32 Aug 26 13:18 example1
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ ls
+example1
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ cat em[Kxample1
+apple
+kiwi
+grape
+pumpkin
+orange
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ exce[K[K[K[Kecho $SHELL
+/bin/bash
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ exit
+logout
+Connection to snowball.cs.gsu.edu closed.
+bash-3.2$ echo $HOSTNAME
+Linns-MBP.wifi.gsu.edu
+bash-3.2$ vi exampe[K[Kple2
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"example2" [New][2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?25h[?4m[?25l[m[24;1H[1m-- INSERT --[m[24;13H[K[1;1H[?25h[?25lp[?25h[?25lo[?25h[?25lo[?25h[?25ld[?25h[?25ll[?25h[?25le[?25h[?25l[2;1H[K[2;1H[?25h[?25ll[?25h[?25la[?25h[?25lg[?25h[?25l[2;3H[K[2;3H[?25h[?25lb[?25h[?25lr[?25h[?25la[?25h[?25ld[?25h[?25lo[?25h[?25lr[?25h[?25l[3;1H[K[3;1H[?25h[?25ly[?25h[?25lo[?25h[?25lr[?25h[?25lk[?25h[?25li[?25h[?25le[?25h[?25l[4;1H[K[4;1H[?25h[?25lg[?25h[?25le[?25h[?25lr[?25h[?25lm[?25h[?25la[?25h[?25ln[?25h[?25l [?25h[?25ls[?25h[?25lh[?25h[?25le[?25h[?25lp[?25h[?25le[?25h[?25lr[?25h[?25ld[?25h[?25l[5;1H[K[5;1H[?25h[?25lc[?25h[?25lh[?25h[?25lu[?25h[?25l[5;3H[K[5;3H[?25h[?25li[?25h[?25lh[?25h[?25lu[?25h[?25lh[?25h[?25lu[?25h[?25la[?25h[?25l [?25h[?25l[?25h[?25l[6;1H[K[6;1H[?25h[?25lh[?25h[?25lu[?25h[?25ls[?25h[?25lk[?25h[?25ly[?25h[?25l[7;1H[K[7;1H[?25h[?25lp[?25h[?25lu[?25h[?25lg[?25h[24;1H[K[7;3H[?25l[?25h[?25l[24;1H:[?25hwq[?25l[?2004l[>4;m"example2" [New] 7L, 57B written[23;2t[23;1t
+[?1004l[?2004l[?1l>[?1049l[?25h[>4;mbash-3.2$ vi -l
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[?25l[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[7;32HVIM - Vi IMproved[9;33Hversion 9.0.2142[10;29Hby Bram Moolenaar et al.[11;19HVim is open source and freely distributable[13;26HHelp poor children in Uganda![14;18Htype  :help iccf[34m<Enter>[m       for information [16;18Htype  :q[34m<Enter>[m               to exit         [17;18Htype  :help[34m<Enter>[m  or  [34m<F1>[m  for on-line help[18;18Htype  :help version9[34m<Enter>[m   for version info[1;1H[?25h[?4m[?25l[24;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[24;1H[K[24;1H[?1004l[?2004l[?1l>[?1049l[?25h[>4;mbash-3.2$ ls -l
+total 1056
+drwxr-xr-x@   7 linnerlek  staff     224 Feb 14  2024  
+-rw-r--r--    1 linnerlek  staff   19286 Aug 26 13:28 Aug26.log
+-rw-r--r--@   1 linnerlek  staff   52277 Aug 18 18:03 Screenshot 2024-08-18 at 6.02.57 PM.png
+-rw-r--r--@   1 linnerlek  staff   82235 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.06 PM.png
+-rw-r--r--@   1 linnerlek  staff  174175 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.08 PM.png
+-rw-r--r--@   1 linnerlek  staff   60151 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.13 PM.png
+-rw-r--r--@   1 linnerlek  staff   84672 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.26 PM.png
+-rw-------@   1 linnerlek  staff   51506 Aug 18 21:10 d16a93505ac4d9cb315527411f158252.jpg
+-rw-r--r--    1 linnerlek  staff      57 Aug 26 13:28 example2
+drwxr-xr-x   38 linnerlek  staff    1216 Aug 17 20:30 soojin
+drwxr-xr-x  137 linnerlek  staff    4384 Aug 17 20:38 soyeon
+bash-3.2$ vi example2
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"example2" 7L, 57B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1Hpoodle
+labrador[2;9H[K[3;1Hyorkie[3;7H[K[4;1Hgerman sheperd
+chihuhua
+husky
+pug
+[94m~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?25h[?4m[?25l[m[24;1H[K[24;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[24;1H[K[24;1H[?1004l[?2004l[?1l>[?1049l[?25h[>4;mbash-3.2$ cd
+bash-3.2$ cd Desktop
+bash-3.2$ d[Ksftp mw[K[Klklfta1@snowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Connected to snowball.cs.gsu.edu.
+sftp> ls
+example1  
+sftp> ls  lls exam*
+example2
+sftp> get example 1
+File "/home/lklfta1/example" not found.
+sftp> get example1
+Fetching /home/lklfta1/example1 to example1
+example1                                        0%    0     0.0KB/s   --:-- ETAexample1                                      100%   32     2.6KB/s   00:00    
+sftp> lls exam*
+example1	example2
+sftp> lls -l exam*
+-rw-r--r--  1 linnerlek  staff  32 Aug 26 13:33 example1
+-rw-r--r--  1 linnerlek  staff  57 Aug 26 13:28 example2
+sftp> put examplke  e2
+Uploading example2 to /home/lklfta1/example2
+example2                                        0%    0     0.0KB/s   --:-- ETAexample2                                      100%   57     2.5KB/s   00:00    
+sftp> ls -l exam*
+-rw-rw-r--    ? 1331089166 1331089166       32 Aug 26 13:18 example1
+-rw-r--r--    ? 1331089166 1331089166       57 Aug 26 13:34 example2
+sftp> lls -l exam*
+-rw-r--r--  1 linnerlek  staff  32 Aug 26 13:33 example1
+-rw-r--r--  1 linnerlek  staff  57 Aug 26 13:28 example2
+sftp> #sftp to exchange files and ssh to log onto remote computer
+sftp> quit
+bash-3.2$ ls -l exam&[K*
+-rw-r--r--  1 linnerlek  staff  32 Aug 26 13:33 example1
+-rw-r--r--  1 linnerlek  staff  57 Aug 26 13:28 example2
+bash-3.2$ cat example1 example2
+apple
+kiwi
+grape
+pumpkin
+orange
+poodle
+labrador
+yorkie
+german sheperd
+chihuhua
+husky
+pug
+bash-3.2$ exti[K[Kit
+exit
+
+Script done on Mon Aug 26 13:38:19 2024

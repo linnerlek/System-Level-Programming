@@ -1,0 +1,29 @@
+Script started on Mon Aug 26 14:01:24 2024
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ ssh lklftya[K[K[K[K[K[K[K[K[K[K[Kssh lklfta1@student.[K[K[K[K[K[K[Knowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Last login: Mon Aug 26 13:09:53 2024 from 131.96.222.88
+   +
+   |   GSU Computer Science
+   |   Instructional Server
+   |   SNOWBALL.cs.gsu.edu
+   +
+]0;lklfta1@gsuad.gsu.edu@snowball:~[?1034h[lklfta1@gsuad.gsu.edu@snowball ~]$ lk[K[Kls -l
+total 16
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 32 Aug 26 13:18 example1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 57 Aug 26 13:34 example2
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 27 Aug 26 14:00 file1
+-rw-r--r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 25 Aug 26 14:00 file2
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ ct[Kat file1 file2
+This is file 1 for the lab
+This is file 2 for lab 1
+]0;lklfta1@gsuad.gsu.edu@snowball:~[lklfta1@gsuad.gsu.edu@snowball ~]$ exit
+logout
+Connection to snowball.cs.gsu.edu closed.
+bash-3.2$ exit
+exit
+
+Script done on Mon Aug 26 14:03:02 2024

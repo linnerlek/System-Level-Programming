@@ -1,0 +1,41 @@
+Linn Klofta
+CSc 3320 Lab1
+Account: lklfta1
+Due date: 09/01
+
+Description: Log of part 1 of lab 1
+
+
+Last login: Mon Aug 26 13:56:31 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) Linns-MBP:~ linnerlek$ cd Desktop
+(base) Linns-MBP:Desktop linnerlek$ script Lab1-1.log
+Script started, output file is Lab1-1.log
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ vi file1
+bash-3.2$ vi file2
+bash-3.2$ sftp lklfta1@snowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Connected to snowball.cs.gsu.edu.
+sftp> put file1  
+Uploading file1 to /home/lklfta1/file1
+file1                                         100%   27     2.2KB/s   00:00    
+sftp> put file2
+Uploading file2 to /home/lklfta1/file2
+file2                                         100%   25     3.4KB/s   00:00    
+sftp> ls -l
+-rw-rw-r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       32 Aug 26 13:18 example1
+-rw-r--r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       57 Aug 26 13:34 example2
+-rw-r--r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       27 Aug 26 14:00 file1
+-rw-r--r--    1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu       25 Aug 26 14:00 file2
+sftp> exit 
+bash-3.2$ exit
+exit
+
+Script done, output file is Lab1-1.log

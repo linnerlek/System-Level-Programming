@@ -1,0 +1,115 @@
+bash-3.2$ ssh lklfta1@snowball.cs.gsu.edu
+The authenticity of host 'snowball.cs.gsu.edu (131.96.155.217)' can't be established.
+ED25519 key fingerprint is SHA256:PhkVVNTJ92YR6OOyawbf/A3jK6kuBJuHBivqDl8HBJ0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'snowball.cs.gsu.edu' (ED25519) to the list of known hosts.
+lklfta1@snowball.cs.gsu.edu's password: 
+Creating home directory for lklfta1.
+   +
+   |   GSU Computer Science
+   |   Instructional Server
+   |   SNOWBALL.cs.gsu.edu
+   +
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls -l
+total 0
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls -la
+total 44
+drwx------.  4 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  4096 Aug 26 13:09 .
+drwxr-xr-x. 44 root                  root                  20480 Aug 26 13:14 ..
+-rw-------.  1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu    18 Aug 26 13:09 .bash_logout
+-rw-------.  1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu   193 Aug 26 13:09 .bash_profile
+-rw-------.  1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu   231 Aug 26 13:09 .bashrc
+drwxrwxr-x.  3 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  4096 Aug 26 13:09 .cache
+drwxrwxr-x.  3 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  4096 Aug 26 13:09 .config
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls -l
+total 0
+[lklfta1@gsuad.gsu.edu@snowball ~]$ vi example1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls -l
+total 4
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 32 Aug 26 13:18 example1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ ls
+example1
+[lklfta1@gsuad.gsu.edu@snowball ~]$ cat example1
+apple
+kiwi
+grape
+pumpkin
+orange
+[lklfta1@gsuad.gsu.edu@snowball ~]$ echo $SHELL
+/bin/bash
+[lklfta1@gsuad.gsu.edu@snowball ~]$ exit
+logout
+Connection to snowball.cs.gsu.edu closed.
+bash-3.2$ echo $HOSTNAME
+Linns-MBP.wifi.gsu.edu
+bash-3.2$ vi example2
+bash-3.2$ vi -l
+bash-3.2$ ls -l
+total 1056
+drwxr-xr-x@   7 linnerlek  staff     224 Feb 14  2024  
+-rw-r--r--    1 linnerlek  staff   19286 Aug 26 13:28 Aug26.log
+-rw-r--r--@   1 linnerlek  staff   52277 Aug 18 18:03 Screenshot 2024-08-18 at 6.02.57 PM.png
+-rw-r--r--@   1 linnerlek  staff   82235 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.06 PM.png
+-rw-r--r--@   1 linnerlek  staff  174175 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.08 PM.png
+-rw-r--r--@   1 linnerlek  staff   60151 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.13 PM.png
+-rw-r--r--@   1 linnerlek  staff   84672 Aug 18 18:03 Screenshot 2024-08-18 at 6.03.26 PM.png
+-rw-------@   1 linnerlek  staff   51506 Aug 18 21:10 d16a93505ac4d9cb315527411f158252.jpg
+-rw-r--r--    1 linnerlek  staff      57 Aug 26 13:28 example2
+drwxr-xr-x   38 linnerlek  staff    1216 Aug 17 20:30 soojin
+drwxr-xr-x  137 linnerlek  staff    4384 Aug 17 20:38 soyeon
+bash-3.2$ vi example2
+bash-3.2$ cd
+bash-3.2$ cd Desktop
+bash-3.2$ sftp lklfta1@snowball.cs.gsu.edu
+lklfta1@snowball.cs.gsu.edu's password: 
+Connected to snowball.cs.gsu.edu.
+sftp> ls
+example1  
+sftp> lls exam*
+example2
+sftp> get example 1
+File "/home/lklfta1/example" not found.
+sftp> get example1
+Fetching /home/lklfta1/example1 to example1
+example1                                      100%   32     2.6KB/s   00:00    
+sftp> lls exam*
+example1	example2
+sftp> lls -l exam*
+-rw-r--r--  1 linnerlek  staff  32 Aug 26 13:33 example1
+-rw-r--r--  1 linnerlek  staff  57 Aug 26 13:28 example2
+sftp> put example2
+Uploading example2 to /home/lklfta1/example2
+example2                                      100%   57     2.5KB/s   00:00    
+sftp> ls -l exam*
+-rw-rw-r--    ? 1331089166 1331089166       32 Aug 26 13:18 example1
+-rw-r--r--    ? 1331089166 1331089166       57 Aug 26 13:34 example2
+sftp> lls -l exam*
+-rw-r--r--  1 linnerlek  staff  32 Aug 26 13:33 example1
+-rw-r--r--  1 linnerlek  staff  57 Aug 26 13:28 example2
+sftp> #sftp to exchange files and ssh to log onto remote computer
+sftp> quit
+bash-3.2$ ls -l exam*
+-rw-r--r--  1 linnerlek  staff  32 Aug 26 13:33 example1
+-rw-r--r--  1 linnerlek  staff  57 Aug 26 13:28 example2
+bash-3.2$ cat example1 example2
+apple
+kiwi
+grape
+pumpkin
+orange
+poodle
+labrador
+yorkie
+german sheperd
+chihuhua
+husky
+pug
+bash-3.2$ exit
+exit
+
+Script done on Mon Aug 26 13:38:19 2024
+(base) Linns-MBP:Desktop linnerlek$ ;2R11;rgb:ffff/ffff/ffff1;95;0c;2R11;rgb:ffff/ffff/ffff1;95;0c;2R3R1;95;0c10;rgb:0000/0000/000011;rgb:ffff/ffff/ffff;2R3R1;95;0c10;rgb:0000/0000/000011;rgb:ffff/ffff/ffff;2R3R1;95;0c10;rgb:0000/0000/000011;rgb:ffff/ffff/ffff
+

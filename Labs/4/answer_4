@@ -1,0 +1,1 @@
+Printing the prompt after scanf fails doesn't work because input/output buffering in C delays output, and scanf reads input first, consuming it before the prompt is printed. In cases of input redirection or piping, the program reads data immediately from the file or pipe, so waiting for scanf to fail prevents the prompt from appearing when it's needed.

@@ -1,0 +1,86 @@
+Linn Erle Klofta
+CSC 3220 Homework #1
+Account: Lklfta1
+Due Date: 09/29
+
+This is a log of homework 1 where i made a program in C to display song lyrics in a random order according to the users input. 
+
+Script started on Wed 18 Sep 2024 04:39:59 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball homework]$ cat hmwk1_Lklfta1.c
+/*
+   Song name: Tall Trees
+   Artist: (G)i-dle
+   Album: Heat
+   Release 2023
+*/
+
+#include <stdio.h>   // for input and output
+#include <stdlib.h>  // for random number generation
+#include <time.h>    // for seeding random number generator
+
+int main() {
+    char* lyrics[] = {
+        "Branches exploding",
+        "My leaves are golden stars, ah",
+        "Birds love to breeze by",
+        "Dogs come to see my bark, hmm-ah",
+        "My expectations stay on low",
+        "But you're the sun, you make them grow",
+        "If there's an axe behind your back, just let me know",
+        "'Cause tall trees fall hard, hard, hard, hard, hoo",
+        "Tall trees fall hard, hard, hard, hard, hoo",
+        "Tall trees fall hard",
+        "So don't you break my"
+    };
+
+    int num_lines = sizeof(lyrics) / sizeof(lyrics[0]); // Get number of lines in the lyrics
+
+    // Seed the random number generator using the current time
+    srand(time(0));
+
+    // Prompt the user for input
+    int n;
+    printf("Enter the number of lines to display: ");
+    scanf("%d", &n);
+
+    // Declare i outside the for loop
+    int i;
+    
+    // Print random lyrics N times
+    for (i = 0; i < n; i++) {
+        // Generate a random index between 0 and the number of lyrics
+        int random_index = rand() % num_lines;
+        printf("%s\n", lyrics[random_index]);
+    }
+
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball homework]$ ls
+hmwk1_Lklfta1.c  hmwk1_Lklfta1.log
+[lklfta1@gsuad.gsu.edu@snowball homework]$ gcc hmwk1_Lklfta1.c -o hmwk1_Lklfta1
+[lklfta1@gsuad.gsu.edu@snowball homework]$ ./hmwk1_Lklfta1
+Enter the number of lines to display: 3
+My expectations stay on low
+'Cause tall trees fall hard, hard, hard, hard, hoo
+So don't you break my
+[lklfta1@gsuad.gsu.edu@snowball homework]$ echo "4" | ./hmwk1_Lklfta1
+Enter the number of lines to display: But you're the sun, you make them grow
+So don't you break my
+But you're the sun, you make them grow
+'Cause tall trees fall hard, hard, hard, hard, hoo
+[lklfta1@gsuad.gsu.edu@snowball homework]$ ./hmwk1_Lklfta1
+Enter the number of lines to display: 4
+Dogs come to see my bark, hmm-ah
+If there's an axe behind your back, just let me know
+My expectations stay on low
+My leaves are golden stars, ah
+[lklfta1@gsuad.gsu.edu@snowball homework]$ ./hmwk1_Lklfta1
+Enter the number of lines to display: 4
+My leaves are golden stars, ah
+Branches exploding
+So don't you break my
+My leaves are golden stars, ah
+[lklfta1@gsuad.gsu.edu@snowball homework]$ exit
+exit
+
+Script done on Wed 18 Sep 2024 04:42:41 PM EDT
