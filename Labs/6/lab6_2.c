@@ -17,6 +17,8 @@ int main(void) {
 
     if (number_to_check < 1 || number_to_check > 100){
         printf("Invalid, enter a number between 1 and 100.\n");
+    } else if (frequencies[number_to_check]==0 ) {
+        printf("The number never appeared\n");
     } else {
         printf("The number %d was generated %d time(s).\n", number_to_check, frequencies[number_to_check]);
     }
