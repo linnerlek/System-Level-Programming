@@ -27,20 +27,17 @@ int main() {
     int num_lines = sizeof(lyrics) / sizeof(lyrics[0]); // Get number of lines in the lyrics
 
     // Seed the random number generator using the current time
-    srand(time(0));
+    srandom(time(NULL));
 
     // Prompt the user for input
-    int n;
+    int n, i;
     printf("Enter the number of lines to display: ");
     scanf("%d", &n);
-
-    // Declare i outside the for loop
-    int i;
     
     // Print random lyrics N times
     for (i = 0; i < n; i++) {
         // Generate a random index between 0 and the number of lyrics
-        int random_index = rand() % num_lines;
+        int random_index = random() % num_lines;
         printf("%s\n", lyrics[random_index]);
     }
 

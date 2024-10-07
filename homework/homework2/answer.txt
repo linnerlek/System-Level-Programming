@@ -1,0 +1,1 @@
+The processes are the same, however if i were to start or stop another process while it was sleeping it would change the output.
