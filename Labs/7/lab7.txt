@@ -1,0 +1,198 @@
+Linn Klofta
+Csc 3320 Lab #7
+Account: Lklfta1
+Due date: 10/13
+
+Script started on Mon 07 Oct 2024 11:34:20 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ vi maxmin.c
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ cat maxmin.c
+/*
+ * Linn Klofta
+ * Accoount: Lklfta1
+ * 
+ * Program finds max and min of 10 numbers
+ * /
+#include <stdio.h> // includes the standard library
+#define N 10 // defines the constant N wuth the value 10 for the preprocessor
+
+void max_min(int a[], int n, int *max, int *min); // tells the compiler that max_min will accept an array a[] of integers, the size of the array n, and pointers to two integers max and min
+
+int main(void){
+	int b[N], i, big, small; //declares the integers b[] for holding the values inserted by the user, i, big and small for storing the smallest and biggest numbers as max_min is called
+
+	printf("Enter %d numbers: ", N); // prompts user to enter 10 numbers
+	for (i = 0; i < N; i++) 
+		scanf("%d", &b[i]); // reads the 10 integers inputted from the user and stores them in the b[] array
+	
+	max_min(b, N, &big, &small); // calls the function passing it the array b, the size N and the addresses of big and small
+
+	printf("Largest: %d\n", big); // prints the largest value 
+	printf("Smallest: %d\n", small); // prints the smallest value
+
+	return 0;
+}
+
+void max_min(int a[], int n, int *max, int *min){ // start of the max_min function definition
+	int i;
+
+	*max = *min = a[0]; // assigns the first element of a[] to the pointers *max and *min
+	for (i=1; i<n; i++){ // for loop looping over the array 
+		if (a[i] > *max) 
+			*max = a[i]; // if the current element in a[i] is > *max then *max is updated to a[i]
+		else if (a[i] < *min)
+			*min = a[i]; // if the current element in a[i] is < *min then *min is updated to a[i]
+	}
+}
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ # i described the maxmin fuction line by line in the form of comments in the program, see above
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ gcc maxmin.c -o maxmin
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ ./maxmin
+Enter 10 numbers: 7 8 2 9 4 3 6 4 1 10 
+Largest: 10
+Smallest: 1
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ echo "1 484 5 3 2 5 9 0 10 8" | ./maxmin
+Enter 10 numbers: Largest: 484
+Smallest: 0
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ vi answers.txt
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ cat answers.txt
+1. adding the line b[0] = 4 before printf of big. 
+The change would not affect the values of big and small since it is called after max_min(). the values of big and small are stored independently of the array b[]. 
+
+2. adding the line a[0] = 4 before printf of big.
+When testing this i got the undeclared error when trying to compile. this is because a[] is a local variable inside the max_min() function and it isnt accessible in the main function.
+
+Conclusion: any changes to the array after the max_min() function has finished will not affect the already calculated max and min values stored in big and small. a[] is a local variable inside the max_min() function and cannot be modified elsewhere as it is undeclared. 
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ cp maxmin.c maxmin_N.c
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ vi maxmin_N.c
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ cat maxmin_N.c
+/*
+ * Linn Klofta
+ * Accoount: Lklfta1
+ * 
+ * Program finds max and min of up to 205 numbers
+ * /
+#include <stdio.h> 
+#define N 205 // 200 + 4 (Linn) + 1 (lklfta1) = 205
+
+void max_min(int a[], int n, int *max, int *min);
+
+int main(void){
+	int b[N], i = 0, big, small, count = 0;
+
+	printf("Enter up to %d numbers (non-number to stop): ", N);
+	
+	while(i<N && scanf("%d", &b[i]) == 1) { // Reads input until a non integer is entered or until the amount of numbers entered is more than N which is 205.
+		i++; // increments i once each time a valid input is input
+	}
+	count = i; // stores the amount of inputs  
+
+	if (count > 0) {
+		max_min(b, count, &big, &small);
+
+		printf("Largest %d\n", big);
+		printf("Smallest %d\n", small);
+	} else {
+		printf("No valid numbers were entered.\n");
+	}	
+
+	return 0;
+}
+
+void max_min(int a[], int n, int *max, int *min){
+	int i;
+
+	*max = *min = a[0]; 
+	for (i=1; i<n; i++){ 
+		if (a[i] > *max) 
+			*max = a[i];
+		else if (a[i] < *min)
+			*min = a[i]; 
+	}
+}
+
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ gcc maxmin_N.c -o maxmin_N
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ ./maxmin_N
+Enter up to 205 numbers (non-number to stop): 3 94 2 1 494 37 1 39 4729 3 q
+Largest 4729
+Smallest 1
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ echo "1 2 3 4" | ./maxmin_N
+Enter up to 205 numbers (non-number to stop): Largest 4
+Smallest 1
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ cp maxmin_N.c closest.c
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ vi closest.c
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ cat closest.c
+/*
+ * Linn Klofta
+ * Accoount: Lklfta1
+ * 
+ * Program finds the closest value to a number from values 
+ * from an input of any amount of values up to 205
+ * /
+#include <stdio.h>
+#define N 205 // 200 + 4 (Linn) + 1 (Lklfta1) = 205
+
+void find_closest(int a[], int n, int target, int *closest1, int *closest2);
+
+int main(void) {
+	int b[N], i = 0, count = 0, target, closest1, closest2;
+
+	printf("Enter the number to find the closest value to: ");
+    	scanf("%d", &target);  // Read the number to find the closest value to
+    
+    	printf("Enter up to %d numbers (non-number to stop): ", N);
+    
+    	while (i < N && scanf("%d", &b[i]) == 1) {  // Read the list of numbers
+        	i++;
+    	}	
+    	count = i;  // Store the number of inputs
+
+    	if (count > 0) {
+        	find_closest(b, count, target, &closest1, &closest2);
+
+        	if (closest1 == closest2) {
+            		printf("Closest value: %d\n", closest1);  // Print the closest value if there is only one closest value
+        	} else {
+            		printf("Closest values: %d and %d\n", closest1, closest2);  // Print both closest values if there are two equally close
+        	}
+    	} else {
+        	printf("No valid numbers were entered.\n");
+    	}	
+
+    	return 0;
+}
+
+// Function to find the closest value(s) to the target
+void find_closest(int a[], int n, int target, int *closest1, int *closest2) { 
+	int i;
+	*closest1 = a[0];
+	*closest2 = a[0];
+	int min_diff = (a[0] - target) < 0 ? -(a[0] - target) : (a[0] - target);  // checks if a[0] - target is less than 0, if it is it negates the value to make it positive, else it keeps the value as it is.
+
+	for (i = 1; i < n; i++) {
+		int diff = (a[i] - target) < 0 ? -(a[i] - target) : (a[i] - target); // checks if a[i] - target is less than 0, if it is it negates the value to make it positive, else it keeps the value as it is.
+
+		if (diff < min_diff) {
+			// If the current element is closer, update both closest1 and closest2
+			min_diff = diff;
+			*closest1 = a[i];
+			*closest2 = a[i];
+		} else if (diff == min_diff) {
+			// If two values are equally close, update closest2 to the new one
+			*closest2 = a[i];
+		}
+	}
+}
+
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ gcc closest.c -o closest
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ ./closest
+Enter the number to find the closest value to: 10
+Enter up to 205 numbers (non-number to stop): 38 29 47 2 4 11 9 48 2 4 2 4 q
+Closest values: 11 and 9
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ ./closest
+Enter the number to find the closest value to: 10
+Enter up to 205 numbers (non-number to stop): 1 8 3 4 9 2 47 2 84 89
+q
+Closest value: 9
+[lklfta1@gsuad.gsu.edu@snowball lab7]$ exit
+exit
+
+Script done on Mon 07 Oct 2024 11:41:55 PM EDT
