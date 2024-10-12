@@ -1,0 +1,120 @@
+Script started on Sat 12 Oct 2024 05:57:23 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ cat lab8_part1.c
+/*
+ * Prints the size of the various pointers
+ * Linn Klofta 2024
+ */
+
+#include <stdio.h>
+
+int main(void) {
+	int a = 23;
+	int *p1 = &a;
+	printf("size of p1: %lu bytes\n", sizeof(p1));
+
+	int b[] = {0};
+	int *p2 = &b;
+	printf("size of p2: %lu bytes\n", sizeof(p2));
+
+	char c = 'A';
+	char *p3 = &c;
+	printf("size of p3: %lu bytes\n", sizeof(p3));
+
+	double d = 10.0;
+	double *p4 = &d;
+	printf("size of p4: %lu bytes\n", sizeof(p4));
+
+	return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part1
+size of p1: 8 bytes
+size of p2: 8 bytes
+size of p3: 8 bytes
+size of p4: 8 bytes
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ cat answer.txt
+The output shows that all the pointers have the same size which is expected because memory addresses in a 64-bit system are 8 bytes long. 
+the data types like int char and double dont affect the size of the pointer itself.
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ cat lab8_part2.c
+/*
+ * Program taken from Lab8
+ *
+ * Linn Klofta 2024
+ */
+
+#include <stdio.h>
+
+int main(){
+	int arr[5] = {1,2,3,4,5};
+	int *p1 = &arr;
+	char *p2 = &arr;
+
+	printf("%p\n", p1);
+	printf("%p\n", p1+1);
+
+	printf("%p\n", p2);
+	printf("%p\n", p2+1);
+	return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part2
+0x7ffdb57def20
+0x7ffdb57def24
+0x7ffdb57def20
+0x7ffdb57def21
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ cat answer2.txt
+Line 1: address of the first element of the int array arr
+Line 2: address of p1 but moved the size of an int (4 bytes)
+Line 3: address of the first element of the char array arr
+Line 4: address of p2 but moved the size of a char (1 byte) 
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ cat lab8_part3.c
+/*
+ * This program reverses an array using pointers
+ *
+ * Linn Klofta 2024
+ */
+
+#include <stdio.h>
+
+int main(void){
+	int n, temp;
+	int *p, *start, *end;
+
+	printf("Enter the number of elements in the array: ");
+	scanf("%d", &n);
+
+	int a[n];
+
+	printf("Enter %d numbers: ", n);
+	for (p = a; p < a + n; p++) {
+		scanf("%d",p);
+	}
+
+	start = a;
+	end = a + n - 1;
+	while (start < end) {
+		temp = *start;
+		*start = *end;
+		*end = temp;
+		start++;
+		end--;
+	}
+
+	printf("Reversed array: ");
+	for (p = a; p < a + n; p++){
+		printf("%d ", *p);
+	}
+	printf("\n");
+	
+	return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part3
+Enter the number of elements in the array: 4
+Enter 4 numbers: 1 2 3 4
+Reversed array: 4 3 2 1 
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part3
+Enter the number of elements in the array: 5
+Enter 5 numbers: 1 2 3 4 5
+Reversed array: 5 4 3 2 1 
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ exit
+exit
+
+Script done on Sat 12 Oct 2024 06:00:04 PM EDT
