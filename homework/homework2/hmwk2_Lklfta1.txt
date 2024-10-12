@@ -1,0 +1,127 @@
+Linn Klofta
+Csc 3320 Hmwk #2
+Account: Lklfta1
+Due date: 10/16
+
+Script started on Fri 11 Oct 2024 09:58:21 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ cat hmwk2_Lklfta1.c
+/*
+ * This program retrieves and displays process IDs, user and group IDs, 
+ * shows a welcome message if the UID matches my personal UID, and lists processes 
+ * before and after a 3-second sleep.
+ *
+ * Linn Klofta 2024
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(void){
+    printf("Starting C program\n");
+    
+    pid_t process_id, parent_process_id;
+    gid_t group_id;
+    uid_t user_id, current_user_id;
+
+    process_id = getpid();
+    printf("Process ID: %d\n", process_id);
+
+    parent_process_id = getppid();
+    printf("Parent Process ID: %d\n", parent_process_id);
+
+    group_id = getgid();
+    printf("Group ID: %d\n", group_id);
+   
+    user_id = 1331089166;
+    current_user_id = getuid();
+
+    if (current_user_id == user_id) {
+        printf("Welcome Linn!\n");
+        system("grep 1331089166 /etc/passwd");  // this gives no output due to the system handling authentication in another way
+    }   else {
+        printf("User ID: %d did not match the expected UID.\n", current_user_id);
+    }
+
+    printf("First list of processes:\n");
+    system("ps");
+
+    printf("Sleeping for 3 seconds...\n");
+    sleep(3);
+
+    printf("Second list of processes after sleeping:\n");
+    system("ps");
+ 
+    printf("Ending C program\n");
+}
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ gcc hmwk2_Lklfta1.c -o hmwk2_Lklfta1
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ ./hmwk2_Lklfta1
+Starting C program
+Process ID: 18662
+Parent Process ID: 18566
+Group ID: 1331089166
+Welcome Linn!
+First list of processes:
+  PID TTY          TIME CMD
+18566 pts/4    00:00:00 bash
+18662 pts/4    00:00:00 hmwk2_Lklfta1
+18664 pts/4    00:00:00 ps
+Sleeping for 3 seconds...
+Second list of processes after sleeping:
+  PID TTY          TIME CMD
+18566 pts/4    00:00:00 bash
+18662 pts/4    00:00:00 hmwk2_Lklfta1
+18667 pts/4    00:00:00 ps
+Ending C program
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ cat answer.txt 
+The list of processes is different, the ps process has a new PID due to the system sleeping and calling it again.
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ cat hmwk2_Lklfta1.sh
+# This is a .sh script which prints the process ID, PPID, GID, my username, attempts to grep the /etc/passwd
+# that matches my $USER, prints a list of processes, sleeps for 3 seconds then prints another list of processes
+#
+# Linn Klofta 2024
+
+echo "Starting shell script"
+
+echo "Process ID: $$"
+
+echo "Parent process ID: $PPID"
+
+echo "Group ID: $(id -g)"
+
+echo "Welcome $USER!"
+grep $USER /etc/passwd
+
+echo "First list of processes:"
+ps
+
+echo "Sleeping for 3 seconds..."
+sleep 3
+
+echo "Sendond list of processes after sleeping:"
+ps
+
+echo "Ending shell script"
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ ./hmwk2_Lklfta1.sh
+Starting shell script
+Process ID: 18718
+Parent process ID: 18566
+Group ID: 1331089166
+Welcome lklfta1@gsuad.gsu.edu!
+First list of processes:
+  PID TTY          TIME CMD
+18566 pts/4    00:00:00 bash
+18718 pts/4    00:00:00 bash
+18721 pts/4    00:00:00 ps
+Sleeping for 3 seconds...
+Sendond list of processes after sleeping:
+  PID TTY          TIME CMD
+18566 pts/4    00:00:00 bash
+18718 pts/4    00:00:00 bash
+18726 pts/4    00:00:00 ps
+Ending shell script
+[lklfta1@gsuad.gsu.edu@snowball homework2]$ exit
+exit
+
+Script done on Fri 11 Oct 2024 10:00:41 PM EDT

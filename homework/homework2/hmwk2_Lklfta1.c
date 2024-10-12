@@ -1,6 +1,6 @@
 /*
  * This program retrieves and displays process IDs, user and group IDs, 
- * shows a welcome message if the UID matches 501, and lists processes 
+ * shows a welcome message if the UID matches my personal UID, and lists processes 
  * before and after a 3-second sleep.
  *
  * Linn Klofta 2024
@@ -27,12 +27,12 @@ int main(void){
     group_id = getgid();
     printf("Group ID: %d\n", group_id);
    
-    user_id = 501;
+    user_id = 1331089166;
     current_user_id = getuid();
 
     if (current_user_id == user_id) {
         printf("Welcome Linn!\n");
-        system("dscl . -list /Users UniqueID | grep 501"); // macbooks does not store info in /etc/psswd therefore i used dscl instead.  
+        system("grep 1331089166 /etc/passwd");  // this gives no output due to the system handling authentication in another way
     }   else {
         printf("User ID: %d did not match the expected UID.\n", current_user_id);
     }
