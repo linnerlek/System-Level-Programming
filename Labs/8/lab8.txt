@@ -1,4 +1,4 @@
-Script started on Sat 12 Oct 2024 05:57:23 PM EDT
+cript started on Mon 14 Oct 2024 01:57:10 PM EDT
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ cat lab8_part1.c
 /*
  * Prints the size of the various pointers
@@ -26,6 +26,11 @@ int main(void) {
 
 	return 0;
 }
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ gcc lab8_part1.c -o lab8_part1
+lab8_part1.c: In function ‘main’:
+lab8_part1.c:14:12: warning: initialization from incompatible pointer type [enabled by default]
+  int *p2 = &b;
+            ^
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part1
 size of p1: 8 bytes
 size of p2: 8 bytes
@@ -34,6 +39,8 @@ size of p4: 8 bytes
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ cat answer.txt
 The output shows that all the pointers have the same size which is expected because memory addresses in a 64-bit system are 8 bytes long. 
 the data types like int char and double dont affect the size of the pointer itself.
+when compiling it gives a warning because int *p2 is pointing to the address of an array. we could fix this by removing & from &b however the professor said in class not to change anything and instead point it out in our answer.
+
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ cat lab8_part2.c
 /*
  * Program taken from Lab8
@@ -55,16 +62,25 @@ int main(){
 	printf("%p\n", p2+1);
 	return 0;
 }
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ gcc lab8_part2.c -o lab8_part2
+lab8_part2.c: In function ‘main’:
+lab8_part2.c:11:12: warning: initialization from incompatible pointer type [enabled by default]
+  int *p1 = &arr;
+            ^
+lab8_part2.c:12:13: warning: initialization from incompatible pointer type [enabled by default]
+  char *p2 = &arr;
+             ^
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part2
-0x7ffdb57def20
-0x7ffdb57def24
-0x7ffdb57def20
-0x7ffdb57def21
+0x7ffee3105290
+0x7ffee3105294
+0x7ffee3105290
+0x7ffee3105291
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ cat answer2.txt
 Line 1: address of the first element of the int array arr
 Line 2: address of p1 but moved the size of an int (4 bytes)
 Line 3: address of the first element of the char array arr
-Line 4: address of p2 but moved the size of a char (1 byte) 
+Line 4: address of p2 but moved the size of a char (1 byte)
+when compiling it gives the same warning as earlier regarding the pointer pointing to the address or the array, however again the professor said to not change this and just point it out instead. 
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ cat lab8_part3.c
 /*
  * This program reverses an array using pointers
@@ -75,46 +91,35 @@ Line 4: address of p2 but moved the size of a char (1 byte)
 #include <stdio.h>
 
 int main(void){
-	int n, temp;
-	int *p, *start, *end;
-
+	int n, *p;
 	printf("Enter the number of elements in the array: ");
 	scanf("%d", &n);
 
 	int a[n];
 
+	// I used the logic in the program reverse3.c from the C textbook written by K.N. King
 	printf("Enter %d numbers: ", n);
-	for (p = a; p < a + n; p++) {
-		scanf("%d",p);
-	}
-
-	start = a;
-	end = a + n - 1;
-	while (start < end) {
-		temp = *start;
-		*start = *end;
-		*end = temp;
-		start++;
-		end--;
-	}
+	for (p = a; p < a + n; p++)
+		scanf("%d", p);
 
 	printf("Reversed array: ");
-	for (p = a; p < a + n; p++){
-		printf("%d ", *p);
-	}
+	for (p = a + n - 1; p >= a; p--)
+		printf(" %d", *p);
 	printf("\n");
-	
+
 	return 0;
 }
-[lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part3
-Enter the number of elements in the array: 4
-Enter 4 numbers: 1 2 3 4
-Reversed array: 4 3 2 1 
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ gcc lab8_part3.c -o lab8_part3
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part3
 Enter the number of elements in the array: 5
 Enter 5 numbers: 1 2 3 4 5
-Reversed array: 5 4 3 2 1 
+Reversed array:  5 4 3 2 1
+[lklfta1@gsuad.gsu.edu@snowball lab8]$ ./lab8_part3
+Enter the number of elements in the array: 4
+Enter 4 numbers: 1 2 3 4
+Reversed array:  4 3 2 1
 [lklfta1@gsuad.gsu.edu@snowball lab8]$ exit
 exit
 
-Script done on Sat 12 Oct 2024 06:00:04 PM EDT
+Script done on Mon 14 Oct 2024 01:59:10 PM EDT
+

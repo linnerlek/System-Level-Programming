@@ -11,7 +11,7 @@
 void max_min(int a[], int n, int *max, int *min);
 
 int main(void){
-	int b[N], i = 0, big, small, count = 0;
+	int b[N], i = 0, big, small, count = 0, return_value;
 
 	printf("Enter up to %d numbers (non-number to stop): ", N);
 	

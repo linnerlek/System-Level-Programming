@@ -1,0 +1,5 @@
+Line 1: address of the first element of the int array arr
+Line 2: address of p1 but moved the size of an int (4 bytes)
+Line 3: address of the first element of the char array arr
+Line 4: address of p2 but moved the size of a char (1 byte)
+when compiling it gives the same warning as earlier regarding the pointer pointing to the address or the array, however again the professor said to not change this and just point it out instead. 

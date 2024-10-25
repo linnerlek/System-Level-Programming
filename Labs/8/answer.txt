@@ -1,0 +1,4 @@
+The output shows that all the pointers have the same size which is expected because memory addresses in a 64-bit system are 8 bytes long. 
+the data types like int char and double dont affect the size of the pointer itself.
+when compiling it gives a warning because int *p2 is pointing to the address of an array. we could fix this by removing & from &b however the professor said in class not to change anything and instead point it out in our answer.
+

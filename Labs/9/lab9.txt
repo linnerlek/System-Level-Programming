@@ -1,0 +1,317 @@
+Linn Klofta
+csc 3320 Lab #9
+Account: Lklfta1
+Due date: 10/27
+
+Script started on Thu 24 Oct 2024 10:11:06 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ gcc lab9_part1.c -o lab9_part1
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ cat lab9_part1.c
+/*
+ * Tells you if a program can be opened or not.
+ * From page 547 of C programming a modern approach
+ * K. N. King
+ *
+ * rewritten 2024 
+ * Linn Klofta
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    FILE *fp;
+
+    if (argc != 2) {
+        printf("("usage: canopen filename\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if ((fp = fopen(argv[1], "r")) == NULL) {
+        printf("("%s can't be opened\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("("%s can be opened\n", argv[1]);
+    fclose(fp);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part1 input
+input can be opened
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part1 doesnotexist
+doesnotexist can't be opened
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part1 lab9_part1.c
+lab9_part1.c can be opened
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ cat lab9_part2.c
+/*
+ * Tells you if a program can be opened or not.
+ * Reads a file and outputs the contents and line number
+ *
+ * Linn Klofta
+ * 2024
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> //So i can use strlen 
+
+int main(int argc, char *argv[]) {
+    FILE *fp;
+    char BUFFER[1000];
+    int current_line = 1;
+
+    if (argc != 2) {
+        printf("("usage: canopen filename\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fp = fopen(argv[1], "r");
+    if (fp == NULL) {
+        printf("("%s can't be opened\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    while(fgets(BUFFER, sizeof(BUFFER), fp)){
+        size_t len = strlen(BUFFER);
+        if (len > 0 && BUFFER[len - 1] == '\n'){ //checks for newline character
+            BUFFER[len - 1] = '\0'; // replaces with a 0
+        }
+    
+        printf("("%d \"%s\"\n", current_line, BUFFER);
+        current_line++;
+    }
+    printf("("%s was opened and read successfully\n", argv[1]);
+    fclose(fp);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ gcc lab9_part2.c -o lab9_part2
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part2 input
+1 "abc"
+2 "12345"
+3 "testing line with space here"
+4 "what if the line contains a 0"
+input was opened and read successfully
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ cat input
+abc
+12345
+testing line with space here
+what if the line contains a 0
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ cat lab9_part3.c
+/*
+ * Reads and prints the contents of a file line by line with a buffer using fread
+ * Linn Klofta
+ * 2024
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUFFER_SIZE 200
+// i define bool for c89 compatability
+#define bool int
+#define true 1
+#define false 0
+
+bool printNextLine(char *buffer, char *ptr, int bufferFillLength, int *lineNumber, bool startedLineAlready) {
+    char *lineStart = ptr;
+    bool foundLineEnd = false;
+    char *temp;
+
+   // traverse through the buffer looking for character with ASCII value 10
+    while (ptr < buffer + bufferFillLength) {
+        if (*ptr == 10) {  
+            foundLineEnd = true;
+            break;
+        }
+        ptr++;
+    }
+    if (!startedLineAlready) {
+        printf("("%d \"", *lineNumber); // prints the line number, a space and then the first " 
+        (*lineNumber)++;
+    }
+    // print the current part of the line
+    for (temp = lineStart; temp < ptr; temp++) {
+        putchar(*temp);
+    }
+    if (foundLineEnd) {
+        printf("("\"\n"); // prints a quote and newline character at the end of a line
+        return false; 
+    } else {
+        return true;  // line incomplete, buffer needs to be refilled
+     }
+}
+
+int main(int argc, char *argv[]) {
+    FILE *fp;
+    char BUFFER[BUFFER_SIZE];
+    int current_line = 1;
+    size_t bufferFillLength;
+    bool startedLineAlready = false;
+    
+    if (argc != 2) {
+        printf("("usage: canopen filename\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fp = fopen(argv[1], "r"); // opens the file
+    if (fp == NULL) {
+        printf("("%s can't be opened\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((bufferFillLength = fread(BUFFER, 1, BUFFER_SIZE, fp)) > 0) {
+        char *ptr = BUFFER;
+
+        while (ptr < BUFFER + bufferFillLength) {
+            startedLineAlready = printNextLine(BUFFER, ptr, bufferFillLength, &current_line, startedLineAlready);
+
+            if (!startedLineAlready) {
+            // if we finished the line, move the pointer past the newline
+                while (ptr < BUFFER + bufferFillLength && *ptr != 10) {
+                    ptr++;
+                }
+                ptr++;  // move past the line-feed character
+            } else {
+                break;              
+            }
+        }
+    }
+
+    if (feof(fp)) {
+        printf("("%s was opened and read successfully\n", argv[1]);
+    }
+    fclose(fp);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ gcc lab9_part3.c -o lab9_part3 
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part3 input
+1 "abc"
+2 "12345"
+3 "testing line with space here"
+4 "what if the line contains a 0"
+input was opened and read successfully
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ echo the output is the same as part 2
+the output is the same as part 2
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ cat lab9_part4.c
+/*
+ * Reads and prints the contents of a file line by line with a buffer using fread
+ * replacing non printable characters with a comma
+ * Linn Klofta
+ * 2024
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUFFER_SIZE 200
+// i define bool for c89 compatability
+#define bool int
+#define true 1
+#define false 0
+
+bool printNextLine(char *buffer, char *ptr, int bufferFillLength, int *lineNumber, bool startedLineAlready) {
+    char *lineStart = ptr;
+    bool foundLineEnd = false;
+    char *temp;
+
+   // traverse through the buffer looking for character with ASCII value 10
+    while (ptr < buffer + bufferFillLength) {
+        if (*ptr == 10) {  
+            foundLineEnd = true;
+            break;
+        }
+        ptr++;
+    }
+    if (!startedLineAlready) {
+        printf("("%d \"", *lineNumber); // prints the line number, a space and then the first " 
+        (*lineNumber)++;
+    }
+    // print the current part of the line and replacing non text characters
+    for (temp = lineStart; temp < ptr; temp++) {
+        if (*temp == 9 || *temp == 10) {
+            putchar(*temp);
+        } else if (*temp >= 32 && *temp <= 127) {
+            putchar(*temp);
+        } else {
+            putchar(',');
+        }
+    }
+    if (foundLineEnd) {
+        printf("("\"\n"); // prints a quote and newline character at the end of a line
+        return false; 
+    } else {
+        return true;  // line incomplete, buffer needs to be refilled
+     }
+}
+
+int main(int argc, char *argv[]) {
+    FILE *fp;
+    char BUFFER[BUFFER_SIZE];
+    int current_line = 1;
+    size_t bufferFillLength;
+    bool startedLineAlready = false;
+    
+    if (argc != 2) {
+        printf("("usage: canopen filename\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fp = fopen(argv[1], "r"); // opens the file
+    if (fp == NULL) {
+        printf("("%s can't be opened\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((bufferFillLength = fread(BUFFER, 1, BUFFER_SIZE, fp)) > 0) {
+        char *ptr = BUFFER;
+
+        while (ptr < BUFFER + bufferFillLength) {
+            startedLineAlready = printNextLine(BUFFER, ptr, bufferFillLength, &current_line, startedLineAlready);
+
+            if (!startedLineAlready) {
+            // if we finished the line, move the pointer past the newline
+                while (ptr < BUFFER + bufferFillLength && *ptr != 10) {
+                    ptr++;
+                }
+                ptr++;  // move past the line-feed character
+            } else {
+                break;              
+            }
+        }
+    }
+
+    if (feof(fp)) {
+        printf("("%s was opened and read successfully\n", argv[1]);
+    }
+    fclose(fp);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ gcc lab9_part4.c -o lab9_part4
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part4 input
+1 "abc"
+2 "12345"
+3 "testing line with space here"
+4 "what if the line contains a 0"
+input was opened and read successfully
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ ./lab9_part4 input2
+1 "hello!"
+2 "some more text here"
+3 "this line has a tab      character"
+4 ""
+5 "here is a line with a control character: ,"
+6 "some characters above ASCII 127 ,,,,,,"
+input2 was opened and read successfully
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ cat input2
+hello!
+some more text here
+this line has a tab      character
+
+here is a line with a control character: 
+some characters above ASCII 127 æøå
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ echo æøå are printed as multiple commas because they are multibyte characters
+æøå are printed as multiple commas because they are multibyte characters
+[lklfta1@gsuad.gsu.edu@snowball lab9]$ exit
+exit
+
+Script done on Thu 24 Oct 2024 10:17:23 PM EDT
