@@ -1,0 +1,5 @@
+Initial directory is /Users/linnerlek/Documents/school/csc3320/homework/homework3
+File 1: Size = 11800 KB, Name = .
+File 2: Size = 4196 KB, Name = ./usd/usd
+File 3: Size = 4196 KB, Name = ./usd
+The rest use 3408 KB
