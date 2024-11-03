@@ -1,0 +1,5 @@
+this is text in my sourcefile, i want to copy this file to my output file.
+if we have multiple lines it should work.
+
+uppercase text is here to check lowercase conversion later.
+this text is all lowercae for uppercase conversion test later.

@@ -1,0 +1,320 @@
+Linn Klofta
+csc 3320 Lab #11
+Account: Lklfta1
+Due date: 11/10
+
+Script started on Sat 02 Nov 2024 10:29:11 PM EDT
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat fcopy.c
+/*
+ * Copies a file
+ * Page 568 C Programming, a moden approach
+ * K. N. King
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    FILE *source_fp, *dest_fp;
+    int ch;
+
+    if (argc != 3) {
+        fprintf("(stderr, "usage: fcopy source dest\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // we use rb to allow for copying of binary files as well as text
+    if ((source_fp = fopen(argv[1], "rb")) == NULL) { 
+        fprintf("(stderr, "Can't open %s\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    // we use wb to allow for copying binary files as well as text
+    if ((dest_fp = fopen(argv[2], "wb")) == NULL) { 
+        fprintf("(stderr, "Can't open %s\n", argv[2]);
+        fclose(source_fp);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = getc(source_fp)) != EOF)
+        putc(ch, dest_fp);
+    
+    fclose(source_fp);
+    fclose(dest_fp);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat sourcefile.txt 
+This is text in my sourcefile, i want to copy this file to my output file.
+If we have multiple lines it should work.
+
+UPPERCASE TEXT IS HERE TO CHECK LOWERCASE CONVERSION LATER.
+this text is all lowercae for uppercase conversion test later.
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./fcopy sourcefile.txt outputfile.txt
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ls
+fcopy    lab11.log    lab11_part2.c  lab11_part3.c   sourcefile.txt
+fcopy.c  lab11_part2  lab11_part3    outputfile.txt
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat outputfile.txt
+This is text in my sourcefile, i want to copy this file to my output file.
+If we have multiple lines it should work.
+
+UPPERCASE TEXT IS HERE TO CHECK LOWERCASE CONVERSION LATER.
+this text is all lowercae for uppercase conversion test later.
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat lab11_part2.c
+/*
+ * Modified the fcopy program with some command line arguments
+ * original from: Page 568 C Programming, a moden approach, K. N. King
+ * Linn Klofta 2024
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define DEBUG 1 // 1 for on 0 for off
+
+typedef enum {false, true} bool;
+
+int main(int argc, char *argv[]) {
+    FILE *source_fp, *dest_fp;
+    int ch, i;
+    bool help = false, uppercase = false, lowercase = false;
+    char *input_file = NULL;
+    char *output_file = NULL;
+
+    for (i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-h") == 0) {
+            help = true; // if -h is input print help info
+        } else if (strcmp(argv[i], "-u") == 0) {
+            uppercase = true; // if -u is input convert to uppercase text
+        } else if (strcmp(argv[i], "-l") == 0) {
+            lowercase = true; // if -l is input convert to lowercase text
+        } else if (!input_file) {
+            input_file = argv[i]; // if no input file has been specified set current to input
+        } else if (!output_file) {
+            output_file = argv[i]; // if no output file has been specified set current to output
+        } else {
+            fprintf("(stderr, "Too many arguments provided. do -h for help\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    if (help) {
+        printf("("How to use: ./lab11_part2 [option] <source> <destination\n>");
+        printf("("Options:\n");
+        printf("("  -h        Display help info\n");
+        printf("("  -u        Convert text to uppercase\n");
+        printf("("  -l        Convert text to lowercase\n");
+        exit(0);
+    }
+
+    if (uppercase && lowercase) {
+        fprintf("(stderr, "Error: can not specify both upper- and lowercase.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if (!input_file || !output_file) {
+        fprintf("(stderr, "Error: expected a source- and a destination file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // we use rb to allow for copying of binary files as well as text
+    if ((source_fp = fopen(input_file, "rb")) == NULL) { 
+        fprintf("(stderr, "Can't open %s\n", input_file);
+        exit(EXIT_FAILURE);
+    }
+
+    // we use wb to allow for copying binary files as well as text
+    if ((dest_fp = fopen(output_file, "wb")) == NULL) { 
+        fprintf("(stderr, "Can't open %s\n", output_file);
+        fclose(source_fp);
+        exit(EXIT_FAILURE);
+    }
+
+    #if DEBUG
+        printf("("Debug info:\n");
+        printf("("    help: %s\n", help ? "true" : "false");
+        printf("("    uppercase: %s\n", uppercase ? "true" : "false");
+        printf("("    lowercase: %s\n", lowercase ? "true" : "false");
+        printf("("    input_file: '%s'\n", input_file ? input_file : "None");
+        printf("("    output_file: '%s'\n", output_file ? output_file : "None");
+    #endif
+
+    while ((ch = getc(source_fp)) != EOF)
+        putc(ch, dest_fp);
+    
+    fclose(source_fp);
+    fclose(dest_fp);
+
+    printf("("File copied successfully to '%s'\n", output_file);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part2 -h sourcefile.txt outputfile2.txt
+How to use: ./lab11_part2 [option] <source> <destination
+>Options:
+  -h        Display help info
+  -u        Convert text to uppercase
+  -l        Convert text to lowercase
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part2 -u -l sourcefile.txt outputfile2.txt
+Error: can not specify both upper- and lowercase.
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part2
+Error: expected a source- and a destination file
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part2 sourcefile.txt 
+Error: expected a source- and a destination file
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part2 sourcefile.txt outputfile2.txt
+Debug info:
+    help: false
+    uppercase: false
+    lowercase: false
+    input_file: 'sourcefile.txt'
+    output_file: 'outputfile2.txt'
+File copied successfully to 'outputfile2.txt'
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat outputfile2.txt
+This is text in my sourcefile, i want to copy this file to my output file.
+If we have multiple lines it should work.
+
+UPPERCASE TEXT IS HERE TO CHECK LOWERCASE CONVERSION LATER.
+this text is all lowercae for uppercase conversion test later.
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat lab11_part3.c
+/*
+ * Modified the fcopy program with some command line arguments
+ * added the upper and lowercase conversion implementation
+ * original from: Page 568 C Programming, a moden approach, K. N. King
+ * Linn Klofta 2024
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define DEBUG 1 // 1 for on 0 for off
+
+typedef enum {false, true} bool;
+
+char convert_uppercase(char ch) {
+    if (ch >= 'a' && ch <= 'z') {
+        ch = ch - 'a' + 'A';
+    }
+    return ch;
+}
+
+char convert_lowercase(char ch) {
+    if (ch >= 'A' && ch <= 'Z') {
+        ch = ch - 'A' + 'a';
+    }
+    return ch;
+}
+
+int main(int argc, char *argv[]) {
+    FILE *source_fp, *dest_fp;
+    int ch, i;
+    bool help = false, uppercase = false, lowercase = false;
+    char *input_file = NULL;
+    char *output_file = NULL;
+
+    for (i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-h") == 0) {
+            help = true; // if -h is input print help info
+        } else if (strcmp(argv[i], "-u") == 0) {
+            uppercase = true; // if -u is input convert to uppercase text
+        } else if (strcmp(argv[i], "-l") == 0) {
+            lowercase = true; // if -l is input convert to lowercase text
+        } else if (!input_file) {
+            input_file = argv[i]; // if no input file has been specified set current to input
+        } else if (!output_file) {
+            output_file = argv[i]; // if no output file has been specified set current to output
+        } else {
+            fprintf("(stderr, "Too many arguments provided. do -h for help\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    if (help) {
+        printf("("How to use: ./lab11_part2 [option] <source> <destination\n>");
+        printf("("Options:\n");
+        printf("("  -h        Display help info\n");
+        printf("("  -u        Convert text to uppercase\n");
+        printf("("  -l        Convert text to lowercase\n");
+        exit(0);
+    }
+
+    if (uppercase && lowercase) {
+        fprintf("(stderr, "Error: can not specify both upper- and lowercase.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if (!input_file || !output_file) {
+        fprintf("(stderr, "Error: expected a source- and a destination file\n");
+        exit(EXIT_FAILURE);
+    }
+
+
+
+    // we use rb to allow for copying of binary files as well as text
+    if ((source_fp = fopen(input_file, "rb")) == NULL) { 
+        fprintf("(stderr, "Can't open %s\n", input_file);
+        exit(EXIT_FAILURE);
+    }
+
+    // we use wb to allow for copying binary files as well as text
+    if ((dest_fp = fopen(output_file, "wb")) == NULL) { 
+        fprintf("(stderr, "Can't open %s\n", output_file);
+        fclose(source_fp);
+        exit(EXIT_FAILURE);
+    }
+
+    #if DEBUG
+        printf("("Debug info:\n");
+        printf("("    help: %s\n", help ? "true" : "false");
+        printf("("    uppercase: %s\n", uppercase ? "true" : "false");
+        printf("("    lowercase: %s\n", lowercase ? "true" : "false");
+        printf("("    input_file: '%s'\n", input_file ? input_file : "None");
+        printf("("    output_file: '%s'\n", output_file ? output_file : "None");
+    #endif
+
+    while ((ch = getc(source_fp)) != EOF) {
+        if (uppercase) {
+            ch = convert_uppercase(ch);
+        } else if (lowercase) {
+            ch = convert_lowercase(ch);
+        }
+        putc(ch, dest_fp);
+    }
+    
+    fclose(source_fp);
+    fclose(dest_fp);
+
+    printf("("File copied successfully to '%s'\n", output_file);
+    return 0;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part3 -u sourcefile.txt uppercase.txt
+Debug info:
+    help: false
+    uppercase: true
+    lowercase: false
+    input_file: 'sourcefile.txt'
+    output_file: 'uppercase.txt'
+File copied successfully to 'uppercase.txt'
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat uppercase.txt 
+THIS IS TEXT IN MY SOURCEFILE, I WANT TO COPY THIS FILE TO MY OUTPUT FILE.
+IF WE HAVE MULTIPLE LINES IT SHOULD WORK.
+
+UPPERCASE TEXT IS HERE TO CHECK LOWERCASE CONVERSION LATER.
+THIS TEXT IS ALL LOWERCAE FOR UPPERCASE CONVERSION TEST LATER.
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ ./lab11_part3 -l sourcefile.txt lowercase.txt
+Debug info:
+    help: false
+    uppercase: false
+    lowercase: true
+    input_file: 'sourcefile.txt'
+    output_file: 'lowercase.txt'
+File copied successfully to 'lowercase.txt'
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ cat lowercase.txt 
+this is text in my sourcefile, i want to copy this file to my output file.
+if we have multiple lines it should work.
+
+uppercase text is here to check lowercase conversion later.
+this text is all lowercae for uppercase conversion test later.
+[lklfta1@gsuad.gsu.edu@snowball lab11]$ exit
+exit
+
+Script done on Sat 02 Nov 2024 10:33:34 PM EDT
