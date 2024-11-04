@@ -1,0 +1,4 @@
+strlen(str) returns 5 becayse it counts the characters in "Gouda" which is 5.
+sizeof(str) returns 10 because str has been declared as char str[10] which means its an array that can hold 10 characters, and sizeof returns this size.
+
+The reason it prints that is because the if statement fails. it fails because it compares the first 10 characters of str wich is "Gouda", but because Gouda is only 5 characters and strcmp compares up to 10 characters it wont return true since the remainder of str has null characters. if the function was strncmp(str, "Gouda", 5) it would print "According to usdairy.com, Gouda can be grated, sliced, cubed and melted"

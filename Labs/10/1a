@@ -1,0 +1,1 @@
+I dont think the program will compile since in a switch case each case value has to be unique. A has the ASCII value of 65 so it is a duplicate with the case 65 printf c. To fix the issue I can remove the conflicting duplicate. after removing it the program has no conflictions and it will output "A" since char i is set to A.

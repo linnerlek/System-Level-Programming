@@ -1,0 +1,31 @@
+strlen()
+calculates the length of a string.
+example with parameter and return value
+char str[] = "This is a string";
+size_t len = strlen(str);
+The output would be 16 since it counts the letters and spaces.
+
+strncmp()
+compares a number of characters from two strings
+example with parameter and return value
+char str1[] = "flowers";
+char str2[] = "trees";
+int result = strncmp(str1, str2, 5);
+compares the first 5 characters of str1 and str2
+output would be a positive integer because the first character of str1 isnt equal to str2
+
+strncpy()
+copies a specific number of characters from one string to another
+example with parameters and output
+char start[] = "Hello there";
+char finish[5];
+strncpy(finish, start, 5);
+output would be Hello since we copy the first 5 characters
+
+strncat()
+appends a specific amount of characters from one string to the end of another string
+example with parameters and output
+char finish[100] = "Hello";
+char start[] = " there";
+strncat(finish, start, 7);
+now finish will contain "Hello there" 
