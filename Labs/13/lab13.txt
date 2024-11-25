@@ -1,0 +1,110 @@
+Linn Klofta
+csc 3320 Lab #13
+Account: Lklfta1
+Due date: 11/24
+
+Script started on Sun 24 Nov 2024 08:28:17 PM EST
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ cat reverse.c
+/*
+ * Program from Glass and Ables, Unix for Programmers and Users
+ * Ch 12, p 393
+ *
+ * REVERSE.C
+ */
+
+#include <stdio.h>
+#include "reverse.h"
+
+reverse (before, after)
+
+char *before;
+char *after;
+
+{
+    int i, j, len;
+
+    len = strlen (before);
+
+    for (j = len - 1, i = 0; j >= 0; j--, i++)
+        after [i] = before [j];
+    after[len] = NULL;
+}
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ cat reverse.h
+/* REVERSE.H */
+
+reverse ();
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ cat main1.c
+/*
+ * Program from Glass and Ables, Unix for Programmers and Users
+ * Ch 12, p 393
+ *
+ * MAIN 1.C
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include "reverse.h"
+
+main(int argc, char *argv[])
+{
+    char str [100];
+    char reversed [100];
+
+    printf("("Enter a string to reverse: ");
+    scanf("("%99s", str);
+
+    reverse(str, reversed);
+
+    printf("("Reversed string: %s\n", reversed);
+
+    return 0;
+}
+
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ gcc -c reverse.c main1.c
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ gcc reverse.o main1.o -o main1
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ls -l
+total 48
+-rwxrwxr-x. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 8448 Nov 18 14:06 a.out
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 4096 Nov 24 20:29 lab12.log
+-rwxrwxr-x. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 8536 Nov 24 20:29 main1
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  403 Nov 24 20:25 main1.c
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 1832 Nov 24 20:29 main1.o
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  352 Nov 24 20:21 reverse.c
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu   29 Nov 18 14:13 reverse.h
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 1464 Nov 24 20:29 reverse.o
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ./main1
+Enter a string to reverse: Hello
+Reversed string: olleH
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ./main1
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ./main1
+Enter a string to reverse: Testing123
+Reversed string: 321gnitseT
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ls -l
+total 52
+-rwxrwxr-x. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 8448 Nov 18 14:06 a.out
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 8192 Nov 24 20:29 lab12.log
+-rwxrwxr-x. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 8536 Nov 24 20:29 main1
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  403 Nov 24 20:25 main1.c
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 1832 Nov 24 20:29 main1.o
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu  352 Nov 24 20:21 reverse.c
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu   29 Nov 18 14:13 reverse.h
+-rw-rw-r--. 1 lklfta1@gsuad.gsu.edu lklfta1@gsuad.gsu.edu 1464 Nov 24 20:29 reverse.o
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ rm main1 main1.o reverse.o a.out
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ls
+lab12.log  main1.c  reverse.c  reverse.h
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ vi Makefile
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ make
+gcc -Wall -c main1.c
+gcc -Wall -o main1 main1.o reverse.o
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ls
+lab12.log  main1  main1.c  main1.o  Makefile  reverse.c  reverse.h  reverse.o
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ./main1
+Enter a string to reverse: Hello
+Reversed string: olleH
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ ./main1
+Enter a string to reverse: Testing123
+Reversed string: 321gnitseT
+[lklfta1@gsuad.gsu.edu@snowball lab13]$ exit
+exit
+
+Script done on Sun 24 Nov 2024 08:36:12 PM EST
