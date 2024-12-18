@@ -1,0 +1,5 @@
+Line 1: 1,32d0 indicates that lines 1 through 32 in aminegg.txt are missing in lklfta1_aminegg.txt, starting at line 0 in lklfta1_aminegg.txt.
+
+Line 2: < AMIN AND THE EGCS shows that the first line in aminegg.txt contains the text "AMIN AND THE EGCS", which is not present in lklfta1_aminegg.txt.
+
+Line 3: < indicates an empty line (second line of aminegg.txt) is also missing in lklfta1_aminegg.txt.
